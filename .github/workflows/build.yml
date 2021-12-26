@@ -17,4 +17,9 @@ jobs:
 
       - name: Go build
         run: make
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: spectator
+          path: dist/spectator
 ...
