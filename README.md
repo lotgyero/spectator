@@ -1,1 +1,7 @@
-# spectator
+# Spectator
+
+## Build
+
+make
+
+## Run
