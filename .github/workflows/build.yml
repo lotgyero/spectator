@@ -1,6 +1,6 @@
 ---
 name: Buid
-acton: [push]
+on: [push]
 jobs:
   build:
     name: Build
