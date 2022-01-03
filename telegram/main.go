@@ -6,13 +6,12 @@ import (
 	"os"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
-	spectator_config "github.com/lotgyero/spectator/pkg/config"
-
+	spectator_config "github.com/lotgyero/spectator/config"
 )
 
-func Run(){
+func Run() {
 	bot, err := tgbotapi.NewBotAPI(spectator_config.GetVal(spectator_config.TELEGRAM_TOKEN))
-	if err!= nil {
+	if err != nil {
 		log.Panic(err)
 	}
 	bot.Debug = true
@@ -27,14 +26,13 @@ func Run(){
 	for update := range updates {
 		if update.Message != nil {
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
-			msg:= tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
 			msg.ReplyToMessageID = update.Message.MessageID
 			bot.Send(msg)
 		}
 	}
-
 }
 
-func Send (){
+func Send() {
 	os.Exit(0)
 }

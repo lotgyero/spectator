@@ -4,7 +4,7 @@ import (
 	// "fmt"
 	"os"
 
-	"github.com/lotgyero/spectator/pkg/core"
+	"github.com/lotgyero/spectator/core"
 )
 
 func main() {

@@ -8,12 +8,10 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 
-	spectator_config "github.com/lotgyero/spectator/pkg/config"
+	spectator_config "github.com/lotgyero/spectator/config"
 )
 
-var (
-	discordToken string
-)
+var discordToken string
 
 func init() {
 	log.Printf("DISCORD: init")
@@ -48,7 +46,6 @@ func Run() {
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
 	dg.Close()
-
 }
 
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
