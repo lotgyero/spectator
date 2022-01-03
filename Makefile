@@ -3,8 +3,6 @@ all: build
 dependenses-upgrade:
 	go get -d -u -t ./...
 
-build: build--spectator
-
 build--spectator:
 	CGO_ENABLED=0 GOOS=linux \
 		go build \
@@ -13,6 +11,8 @@ build--spectator:
 		-o dist/spectator \
 		./cmd/spectator
 
+build: build--spectator
+
 clean--spectator:
 	rm --force \
 	./dist/spectator
@@ -20,3 +20,6 @@ clean--spectator:
 clean: clean--spectator
 
 rebuild: clean build
+
+service--modules:
+	go mod tidy
